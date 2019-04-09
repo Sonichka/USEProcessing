@@ -12,7 +12,7 @@ int s = second();
 int m = minute(); 
 int mO = minute(); 
 int h = hour(); 
-int hO = hour(); //problem
+int hO = hour(); 
 int ylog = 65;
 int count = 1;
 int day = day();
@@ -37,7 +37,6 @@ void setup() {
   // with "receiverName" to be my channel others can send data to
   // (for more information how to run an OOCSI server refer to: https://iddi.github.io/oocsi/)
   OOCSI oocsi = new OOCSI(this, "rec_sz", "oocsi.id.tue.nl");
-  
   
 
   // subscribe to channel "testchannel"
@@ -142,12 +141,9 @@ void triggered(){
   String StringMin = Integer.toString(m);
   boolean allow = false; // debug - 2 different cases -  if at start - odd num;
   int triggerMsg = 0;
- // boolean start = true;
   
   int minS = minute();
   int diffM = abs(mO - minS);
-  
- //  allow = StringMin.endsWith("5");
    
    
    if( diffM >= 1){
@@ -167,17 +163,5 @@ void triggered(){
     .send();
     return; 
    }
-   
-  /* if((StringMin.endsWith("5") || StringMin.endsWith("3") || StringMin.endsWith("9") || StringMin.endsWith("7") || StringMin.endsWith("1")) && start){
-     start = false;
-     allow = true;   
-     triggerMsg = 1;
-     send.channel("testchannel")
-    // integer type number
-    .data("triggerMsg", triggerMsg)
-    // send all
-    .send();
-    return; 
-   } */
-  
+     
 }
